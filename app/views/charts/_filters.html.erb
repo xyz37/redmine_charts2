@@ -25,7 +25,8 @@ function toggle_filter(field) {
     } else {
       Element.hide('tr_' + field)
       values.disable();
-      select = $('add_filter_select'); //gets the drop down list element
+      var select = $('add_filter_select'); //gets the drop down list element
+      if (select)
       for (i=0; i<select.options.length; i++) { //iterating through the options in drop down list
         if (select.options[i].value == field) { //If de-seclected element found
             select.options[i].disabled = false; //set disabled = false

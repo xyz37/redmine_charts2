@@ -6,6 +6,7 @@ module RedmineCharts
     def self.convert(chart, data)
       index = 0
 
+
       data[:sets].each do |set|
         line = OpenFlashChart::Line.new
         line.text = set[0]

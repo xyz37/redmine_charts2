@@ -43,7 +43,7 @@ module RedmineCharts
           when :author_ids then conditions[:author_ids] = members unless members.size == 0
           when :issue_ids then conditions[:issue_ids] = nil
 
-          #when :project_ids then conditions[:project_ids] = Project.all.collect { |a| [a.name, a.id] }.sort { |a,b| a[0].upcase <=> b[0].upcase }
+          when :project_ids then conditions[:project_ids] = Project.all.collect { |a| [a.name, a.id] }.sort { |a,b| a[0].upcase <=> b[0].upcase }
           #Gets Current project and sub projects (of current projects) to which user has access. Both arrays are merged using |
           when :project_ids then conditions[:project_ids] = (project.to_a.collect { |a| [a.name, a.id] }.sort { |a,b| a[0].upcase <=> b[0].upcase }) | (project.children.visible.all.collect { |a| [a.name, a.id] }.sort { |a,b| a[0].upcase <=> b[0].upcase })
 

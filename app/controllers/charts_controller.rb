@@ -39,7 +39,8 @@ class ChartsController < ApplicationController
       @textconditions_options = @conditions_options.select { |c1,c2| c2.nil? }
       @conditions_options = @conditions_options.select { |c1,c2| not c2.nil? }
     else
-      @conditions_options = []
+      @conditions_options = {}
+      #@conditions_options = []
     end
 
     unless get_multiconditions_options.empty?
@@ -50,7 +51,11 @@ class ChartsController < ApplicationController
       @multiconditions_options = []
     end
 
-    @all_conditions_options = @conditions_options + @multiconditions_options + @textconditions_options 
+    # todo: refactoring. functionality may be messed.
+    @all_conditions_options = 
+      #@conditions_options + 
+      @multiconditions_options  
+      #@textconditions_options 
 
     unless get_help.blank?
       @help = get_help
@@ -95,7 +100,7 @@ class ChartsController < ApplicationController
       flash[:notice] = l(:charts_saved_condition_flash_deleted)
     end
 
-    redirect_to :action => :index
+    redirect_to :action => :index, :project_id => @project
   end
 
   protected
@@ -103,7 +108,6 @@ class ChartsController < ApplicationController
   # Return data for chart
   def create_chart
     chart = OpenFlashChart.new
-
     data = get_data
 
     if data[:error]
