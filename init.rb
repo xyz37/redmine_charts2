@@ -1,5 +1,4 @@
 require 'redmine'
-require "awesome_print"
 
 ::Rails.logger.info 'Starting Charts Plugin for RedMine'
 #RAILS_DEFAULT_LOGGER.info 'Starting Charts Plugin for RedMine'
@@ -21,11 +20,11 @@ ActionDispatch::Callbacks.to_prepare do
   end
 end
 
-Redmine::Plugin.register :redmine_charts do
+Redmine::Plugin.register :redmine_charts2 do
   name 'Redmine Charts'
-  author 'Maciej Szczytowski'
+  author 'Alexey Mirniy'
   description 'Plugin for Redmine which integrates some nice project charts.'
-  url 'http://github.com/mszczytowski/redmine_charts/'
+  url 'http://github.com/pharmazone/redmine_charts2/'
   version File.read(File.dirname(__FILE__) + '/VERSION').strip
 
   # Minimum version of Redmine.
