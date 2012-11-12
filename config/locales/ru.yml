@@ -64,11 +64,11 @@ ru:
   charts_deviation_group_estimated: "предполагалось часов"
   charts_deviation_help: "Соотношение между затраченным и оставшимся временем по каждой задаче. Это соотношение должно быть меньше или равно 100%. Отображаются задачи, по которым имеется оценка. Первый столбец отображает усреденные значения по всему проекту."
 
-  charts_earlier: "&laquo; Ранее"
-  charts_later: "Позднее &raquo;"
+  charts_earlier: "« Ранее"
+  charts_later: "Позднее »"
 
-  charts_previous: "&laquo; Previous page"
-  charts_next: "Next page &raquo;"
+  charts_previous: "« Previous page"
+  charts_next: "Next page »"
   charts_deviation_group_logged_not_estimated: logged hours for not estimated issues
   charts_deviation_hint_logged_not_estimated: "%{logged_hours} hours logged for not estimated issues"
   charts_condition_tracker_ids: "Tracker"
