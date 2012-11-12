@@ -24,10 +24,6 @@ Migrate database.
 
     $ rake redmine:plugins RAILS_ENV=production
 
-Populate tables with old data.
-
-    $ rake charts:migrate RAILS_ENV=production
-
 Run Redmine and have a fun!
 
 ## Translations
