@@ -8,31 +8,27 @@ Plugin which integrates with Redmine following charts: burndown, timeline, ratio
 Download the sources and put them to your vendor/plugins folder.
 
     $ cd {REDMINE_ROOT}
-    $ git clone git://github.com/mszczytowski/redmine_charts.git vendor/plugins/redmine_charts
+    $ git clone git://github.com/pharmazone/redmine_charts2 plugins/redmine_charts2
 
 Install OpenFlashChart plugin. 
 
-    $ ./script/plugin install git://github.com/pullmonkey/open_flash_chart.git
+    $ cd {REDMINE_ROOT}
+    $ git clone git://github.com/pullmonkey/open_flash_chart.git plugins/open_flash_chart
+
+Copy OpenFlashChart's assests.
+
+    $ cd {REDMINE_ROOT}
+    $ cp -r plugins/open_flash_chart/assests public/plugin_assets/open_flash_chart
 
 Migrate database.
 
-    $ rake db:migrate:plugins RAILS_ENV=production
+    $ rake redmine:plugins RAILS_ENV=production
 
 Populate tables with old data.
 
     $ rake charts:migrate RAILS_ENV=production
 
 Run Redmine and have a fun!
-
-## Troubleshouting
-
-### I don't see any data in charts / I don't see my old data in charts
-
-Run migration task "charts:migrate" to populate tables used by plugin with Your old data.
-
-### I don't see charts tab / I don't see link to add new saved condition
-
-Add permission to Your user.
 
 ## Translations
 
@@ -53,7 +49,12 @@ Thanks for the contribution.
 
 ## Changelog
 
-## 0.1.1
+### 2.0
+- compatible with Redmine 2.0.3
+
+
+
+### 0.1.1
 - compatible with Redmine 1.1.2
 - Only list active projects, fix from Anton Kravchenko's fork. 
 - weeks starts from 0 - yondo
