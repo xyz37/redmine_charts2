@@ -18,7 +18,7 @@ Install OpenFlashChart plugin.
 Copy OpenFlashChart's assests.
 
     $ cd {REDMINE_ROOT}
-    $ cp -r plugins/open_flash_chart/assests public/plugin_assets/open_flash_chart
+    $ cp -r plugins/open_flash_chart/assets public/plugin_assets/open_flash_chart
 
 Migrate database.
 

@@ -1,6 +1,6 @@
 <script type="text/javascript">
 //<![CDATA[
-if ($() == undefined ){
+if ( typeof(Prototype) != 'undefined' ){
     function add_filter() {
         select = $('add_filter_select');
         field = select.value
@@ -110,7 +110,6 @@ if ($() == undefined ){
     <script type="text/javascript">toggle_filter('<%= condition[0] %>');</script>
   <% end %>
   <% @multiconditions_options.each do |condition| %>
-    <% p condition,  condition[1], @conditions[condition[0].to_sym] %>
     <tr id="<%= "tr_#{condition[0]}" %>" class="filter"><td style="width:200px;">
       <%= check_box_tag 'fields[]', condition[0], @conditions[condition[0].to_sym], :onclick => "toggle_filter('#{condition[0]}');", :id => "cb_#{condition[0]}" %>
       <label for="<%= "cb_#{condition[0]}" %>"><%= l("charts_condition_#{condition[0]}".gsub(".","_").to_sym) %></label>

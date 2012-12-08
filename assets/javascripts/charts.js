@@ -1,4 +1,4 @@
-if ($() == undefined ){
+if ( typeof(Prototype) != 'undefined' ){
     function charts_earlier() {
         $('offset').value = parseInt($('offset').value) + parseInt($('limit').value);
         $('offset').form.submit();
