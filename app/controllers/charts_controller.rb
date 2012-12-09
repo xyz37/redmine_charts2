@@ -70,9 +70,9 @@ class ChartsController < ApplicationController
     @conditions = RedmineCharts::ConditionsUtils.from_params(get_conditions_options + get_multiconditions_options, @project.id, params)
 
     if params[:chart_form_action] == 'saved_condition_update'
-      @saved_condition = create_saved_condition(:update, @conditions, @grouping)
+      @saved_condition = create_saved_condition(:update, @conditions, @grouping, @range, @pagination)
     elsif params[:chart_form_action] == 'saved_condition_create'
-      @saved_condition = create_saved_condition(:create, @conditions, @grouping)
+      @saved_condition = create_saved_condition(:create, @conditions, @grouping, @range, @pagination)
     end
 
     unless @saved_condition
@@ -255,7 +255,7 @@ class ChartsController < ApplicationController
     render_404
   end
 
-  def create_saved_condition(action, conditions, grouping)
+  def create_saved_condition(action, conditions, grouping, range, pagination)
     if action == :create
       condition = ChartSavedCondition.new
     else
@@ -270,6 +270,9 @@ class ChartsController < ApplicationController
       condition.chart = self.class.name.underscore.sub("charts_","").sub("_controller","")
 
       conditions[:grouping] = grouping
+      conditions.merge!(range) unless range.nil?
+      # do we need save pagination??
+      #conditions.merge!(pagination) unless pagination.nil?
 
       condition.conditions = conditions
 

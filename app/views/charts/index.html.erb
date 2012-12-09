@@ -34,16 +34,16 @@
     </fieldset>
 
   <p class="buttons">
-    <%= submit_tag l(:button_apply), :class => 'button-small', :onclick =>"apply_button_click(); return false;" %>
+  <%= submit_tag l(:button_apply), :id => 'button_apply', :class => 'button-small' %>
 
     <%= link_to l(:button_clear), {}, :class => 'icon icon-reload' %>
 
     <% if User.current.allowed_to?(:save_charts, @project, :global => true) %>
       <% if @saved_condition %>
-        <%= link_to l(:button_save_condition), {}, :onclick => "$(did('saved_condition_create')).hide(); $(did('saved_condition_update')).show(); return false;", :class => 'icon icon-save' %>
-        <%= link_to l(:button_save_condition_as_new), {}, :onclick => "$(did('saved_condition_update')).hide(); $(did('saved_condition_create')).show(); return false;", :class => 'icon icon-save' %>
+        <%= link_to l(:button_save_condition), {}, :onclick => "$('#saved_condition_create').hide(); $('#saved_condition_update').show(); return false;", :class => 'icon icon-save' %>
+        <%= link_to l(:button_save_condition_as_new), {}, :onclick => "$('#saved_condition_update').hide(); $('#saved_condition_create').show(); return false;", :class => 'icon icon-save' %>
       <% else %>
-        <%= link_to l(:button_save_condition), {}, :onclick => "$(did('saved_condition_create')).show(); return false;", :class => 'icon icon-save' %>
+        <%= link_to l(:button_save_condition), {}, :onclick => "$('#saved_condition_create').show(); return false;", :class => 'icon icon-save' %>
       <% end %>
     <% end %>
   </p>
