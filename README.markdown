@@ -7,8 +7,17 @@ Plugin which integrates with Redmine following charts: burndown, timeline, ratio
 
 Download the sources and put them to your vendor/plugins folder.
 
+For Redmine 2.0.x
+
     $ cd {REDMINE_ROOT}
     $ git clone git://github.com/pharmazone/redmine_charts2 plugins/redmine_charts2
+
+For Redmine 2.1.x
+
+    $ cd {REDMINE_ROOT}
+    $ git clone git://github.com/pharmazone/redmine_charts2 plugins/redmine_charts2
+    $ cd plugins/redmine_charts2
+    $ git co redmien21
 
 Install OpenFlashChart plugin. 
 
@@ -44,6 +53,9 @@ Run Redmine and have a fun!
 Thanks for the contribution. 
 
 ## Changelog
+
+### 2.1 
+- compatible with Redmine 2.1 
 
 ### 2.0
 - compatible with Redmine 2.0.3
