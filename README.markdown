@@ -41,7 +41,7 @@ Run Redmine and have a fun!
 - pt-br by Enderson Maia
 - nl by onno-schuit
 - en by Maciej Szczytowski and Rocco Stanzione
-- ru by Vadim Kruchkov
+- ru by Vadim Kruchkov and [AlexStein](https://github.com/AlexStein)
 - es by Rafael Lorenzo, José Javier Sianes Ruiz 
 - pl by Maciej Szczytowski
 - fr by Yannick Quenec'hdu
