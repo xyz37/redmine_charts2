@@ -179,7 +179,12 @@ module RedmineCharts
     end
 
     def self.subtract_week(current, offset)
-      date = Date.strptime(current, "%Y0%W") - offset.weeks
+      # Issue 13
+      if current.scan(/00$/) 
+        date = Date.strptime(current.gsub(/00$/,'01'), "%Y0%W") - (offset+1).weeks
+      else 
+        date = Date.strptime(current, "%Y0%W") - offset.weeks
+      end
 
       key = "%d%03d" % [date.year, date.strftime("%W").to_i]
 
