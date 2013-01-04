@@ -110,7 +110,10 @@ module RedmineCharts
     private
 
     def self.format_week(date)
-      date.strftime('%Y0%W')
+      #date.strftime('%Y0%W')
+      # Issue 13
+      date = date.to_date
+      date.cwyear.to_s + '0' + date.cweek.to_s
     end
 
     def self.format_month(date)
@@ -179,12 +182,7 @@ module RedmineCharts
     end
 
     def self.subtract_week(current, offset)
-      # Issue 13
-      if current.scan(/00$/) 
-        date = Date.strptime(current.gsub(/00$/,'01'), "%Y0%W") - (offset+1).weeks
-      else 
-        date = Date.strptime(current, "%Y0%W") - offset.weeks
-      end
+      date = Date.strptime(current, "%Y0%W") - offset.weeks
 
       key = "%d%03d" % [date.year, date.strftime("%W").to_i]
 
