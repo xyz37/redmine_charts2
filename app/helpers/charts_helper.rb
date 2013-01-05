@@ -27,7 +27,7 @@ module ChartsHelper
     html = "<div id=\"#{div_name}\"></div>"
     html << '<script type="text/javascript">' << "\n"
     html << "function open_flash_chart_inline_data() {\n"
-    html << "return '#{data.gsub("'","\\\\'")}';\n"     
+    html << "return '#{data.gsub("'","\\\\'").gsub('"','\\\\"')}';\n"     
     html << "};\n"
     html << "swfobject.embedSWF('#{relative_url_path}/plugin_assets/open_flash_chart/open-flash-chart.swf', '#{div_name}', '100%', '400', '9.0.0', 'expressInstall.swf', {'get-data':'open_flash_chart_inline_data'});"
     html << "\nvar charts_to_image_title = '#{h(controller.controller_name)}';\n"
@@ -49,12 +49,12 @@ module ChartsHelper
 
     # Pagination.
 
-    res << link_to_function(l(:charts_earlier), :onclick => 'charts_earlier();') << " - "
+    res << content_tag(:a, l(:charts_earlier), :class => 'charts_earlier', :href => '#') << " - "
 
     if offset.to_i == 1
       res << l(:charts_later)
     else
-      res << link_to_function(l(:charts_later), :onclick => 'charts_later();')
+      res << content_tag(:a, l(:charts_later), :class => 'charts_later', :href => '#')
     end
 
     res
@@ -68,7 +68,7 @@ module ChartsHelper
       if page == 1
         res << l(:charts_previous)
       else
-        res << link_to_function(l(:charts_previous), :onclick => 'charts_previous();')
+        res << content_tag(:a, l(:charts_previous), :class => 'charts_previous', :href => '#')
       end
 
       res << ' - '
@@ -76,7 +76,7 @@ module ChartsHelper
       if page == pages
         res << l(:charts_next)
       else
-        res << link_to_function(l(:charts_next), :onclick => 'charts_next();')
+        res << content_tag(:a, l(:charts_next), :class => 'charts_next', :href => '#')
       end
     end
 
