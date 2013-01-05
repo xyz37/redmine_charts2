@@ -10,10 +10,16 @@ class ChartsTimelineController < ChartsController
     sets = {}
     max = 0
 
+    
     if rows.size > 0
       rows.each do |row|
         group_name = RedmineCharts::GroupingUtils.to_string(row.group_id, @grouping)
-        index = @range[:keys].index(row.range_value.to_s)
+        # Issue 13 
+        val = row.range_value.to_s
+        if (@range[:range] == :weeks) && (val =~ /000$/)
+          val = RedmineCharts::RangeUtils.format_week(Date.new(val[0,4].to_i));
+        end
+        index = @range[:keys].index(val)
         if index
           sets[group_name] ||= Array.new(@range[:keys].size, [0, get_hints])
           sets[group_name][index] = [row.logged_hours.to_f, get_hints(row)]
