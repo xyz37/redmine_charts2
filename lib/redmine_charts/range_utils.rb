@@ -113,7 +113,13 @@ module RedmineCharts
       #date.strftime('%Y0%W')
       # Issue 13
       date = date.to_date
-      date.cwyear.to_s + '0' + date.cweek.to_s
+      week = date.strftime("%W").to_i
+      if week == 0
+        res = subtract_week(date.year.to_s + '001',1)[0]
+      else
+        res = "%d%03d" % [date.year, date.strftime("%W").to_i]
+      end
+      res
     end
 
     def self.format_month(date)
