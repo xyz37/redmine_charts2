@@ -17,7 +17,7 @@ For Redmine 2.1.x
     $ cd {REDMINE_ROOT}
     $ git clone git://github.com/pharmazone/redmine_charts2 plugins/redmine_charts2
     $ cd plugins/redmine_charts2
-    $ git co redmine21
+    $ git checkout redmine21
 
 Install OpenFlashChart plugin. 
 
@@ -41,7 +41,7 @@ Run Redmine and have a fun!
 - pt-br by Enderson Maia
 - nl by onno-schuit
 - en by Maciej Szczytowski and Rocco Stanzione
-- ru by Vadim Kruchkov
+- ru by Vadim Kruchkov and [AlexStein](https://github.com/AlexStein)
 - es by Rafael Lorenzo, José Javier Sianes Ruiz 
 - pl by Maciej Szczytowski
 - fr by Yannick Quenec'hdu
